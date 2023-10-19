@@ -1,0 +1,31 @@
+class NegativeDimensionException extends Exception
+{
+    public String toString()
+    {
+        return "Dimensions of a Rectangle cannot be negative.";
+    }
+}
+
+public class Throw_and_throws {
+    static int area(int l, int b) throws NegativeDimensionException
+    {
+        if(l<0 || b<0)
+            throw new NegativeDimensionException();
+        return l*b;
+    }
+    static void meth1() throws NegativeDimensionException
+    {
+        System.out.println("Area of rectangle is: " + area(10, 5));
+    }
+    public static void main(String[] args){
+        try
+        {
+            meth1();
+        }
+        catch (NegativeDimensionException e)
+        {
+            System.out.println(e);
+        }
+
+    }
+}
